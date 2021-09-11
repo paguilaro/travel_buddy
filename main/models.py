@@ -10,19 +10,18 @@ class UserManager(models.Manager):
         errors = {}
 
         if len(postData['name']) < 3:
-            errors['firstname_len'] = "Your name should be at least 3 characters";
+            errors['firstname_len'] = "Your name should be at least 3 characters"
 
-        if not EMAIL_REGEX.match(postData['email']) < 3:
-            errors['email'] = "Your name should be at least 3 characters"
+
 
         if not SOLO_LETRAS.match(postData['name']):
             errors['solo_letras'] = "solo letras en nombreporfavor"
 
         if len(postData['password']) < 8:
-            errors['password'] = "Password should be at least 8 characters";
+            errors['password'] = "Password should be at least 8 characters"
 
         if postData['password'] != postData['password_confirm'] :
-            errors['password_confirm'] = "Passwords don't match. "
+            errors['password_confirm'] = "Passwords don't match "
 
         
         return errors

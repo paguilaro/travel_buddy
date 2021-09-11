@@ -20,7 +20,7 @@
             {% for travel in travels %}        
             <tbody>
                 <tr>
-                    <th>{{travel.destination}}</th>
+                    <th><a href="/view" class="link-primary">{{travel.destination}}</a></th>
                     <td>{{travel.travel_from}}</td>
                     <td>{{travel.travel_to}}</td>
                     <td>{{travel.description}}</td>
