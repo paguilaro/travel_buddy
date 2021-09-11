@@ -16,7 +16,7 @@ def index(request):
 @login_required
 def travels(request):
 
-    travels= Travels.objects.all()[:5]
+    travels= Travels.objects.all().order_by('-created_at')[:5]
     context = {
         'saludo': 'Hola',
         "travels":travels
@@ -30,3 +30,11 @@ def addtrip(request):
         'saludo': 'Hola'
     }
     return render(request, 'addtrip.html', context)
+
+@login_required
+def view(request):
+
+    context = {
+        'saludo': 'Hola'
+    }
+    return render(request, 'view.html', context)
