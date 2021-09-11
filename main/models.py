@@ -9,7 +9,7 @@ class UserManager(models.Manager):
 
         errors = {}
 
-        if len(postData['name']) < 2:
+        if len(postData['name']) < 3:
             errors['firstname_len'] = "nombre debe tener al menos 3 caracteres de largo";
 
         if not EMAIL_REGEX.match(postData['email']):
@@ -18,7 +18,7 @@ class UserManager(models.Manager):
         if not SOLO_LETRAS.match(postData['name']):
             errors['solo_letras'] = "solo letras en nombreporfavor"
 
-        if len(postData['password']) < 4:
+        if len(postData['password']) < 8:
             errors['password'] = "contraseña debe tener al menos 8 caracteres";
 
         if postData['password'] != postData['password_confirm'] :
@@ -46,3 +46,18 @@ class User(models.Model):
 
     def __repr__(self):
         return f"{self.name}"
+
+class Trips(models.Model):
+    destination= models.CharField(max_length=100)
+    description= models.TextField()
+    travel_from= models.DateTimeField()
+    travel_to= models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.destination}"
+
+    def __repr__(self):
+        return f"{self.destination}"
+

@@ -3,7 +3,7 @@
 {% block titulo %}NUEVO PLAN{% endblock %}
 
 {% block botones_superiore %}
-    <a class="btn btn-outline-success" href="/">Home</a>
+    <a class="btn btn-outline-success" href="/travels">Home</a>
     <a class="btn btn-outline-warning ms-3" href="/logout">Logout</a>
 {% endblock %}
 
@@ -13,20 +13,20 @@
     <form>
     {% csrf_token %}
         <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Destination</label>
-          <input type="text" class="form-control" aria-describedby="" name="destination_plan">
+          <label for="" class="form-label">Destination</label>
+          <input type="text" class="form-control" aria-describedby="" name="destination">
         </div>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Description</label>
-            <input type="text" class="form-control" aria-describedby="" name="description_plan">
+            <label for="">Description</label>
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="description"></textarea>
         </div>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Travel Data From</label>
-            <input type="text" class="form-control" aria-describedby="">
+            <label for="" class="form-label">Travel Data From</label>
+            <input type="date" class="form-control" aria-describedby="" name="travel_from">
         </div>
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Travel Data To</label>
-            <input type="text" class="form-control" aria-describedby="">
+            <label for="" class="form-label">Travel Data To</label>
+            <input type="date" class="form-control" aria-describedby="" name="travel_to">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
