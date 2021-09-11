@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.shortcuts import redirect, render
 import bcrypt
 from .decorators import login_required
-from .models import Trips
+from .models import User, Travels
 
 
 @login_required
@@ -16,8 +16,10 @@ def index(request):
 @login_required
 def travels(request):
 
+    travels= Travels.objects.all()[:5]
     context = {
-        'saludo': 'Hola'
+        'saludo': 'Hola',
+        "travels":travels
     }
     return render(request, 'travels.html', context)
 

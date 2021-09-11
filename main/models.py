@@ -10,19 +10,19 @@ class UserManager(models.Manager):
         errors = {}
 
         if len(postData['name']) < 3:
-            errors['firstname_len'] = "nombre debe tener al menos 3 caracteres de largo";
+            errors['firstname_len'] = "Your name should be at least 3 characters";
 
-        if not EMAIL_REGEX.match(postData['email']):
-            errors['email'] = "correo invalido"
+        if not EMAIL_REGEX.match(postData['email']) < 3:
+            errors['email'] = "Your name should be at least 3 characters"
 
         if not SOLO_LETRAS.match(postData['name']):
             errors['solo_letras'] = "solo letras en nombreporfavor"
 
         if len(postData['password']) < 8:
-            errors['password'] = "contraseña debe tener al menos 8 caracteres";
+            errors['password'] = "Password should be at least 8 characters";
 
         if postData['password'] != postData['password_confirm'] :
-            errors['password_confirm'] = "contraseña y confirmar contraseña no son iguales. "
+            errors['password_confirm'] = "Passwords don't match. "
 
         
         return errors
@@ -47,7 +47,7 @@ class User(models.Model):
     def __repr__(self):
         return f"{self.name}"
 
-class Trips(models.Model):
+class Travels(models.Model):
     destination= models.CharField(max_length=100)
     description= models.TextField()
     travel_from= models.DateTimeField()
